@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { DM_Serif_Display, Manrope } from "next/font/google";
+import FloatingWhatsappWidget from "./components/layout/sections/FloatingWhatsappWidget";
 
 const headingFont = DM_Serif_Display({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${headingFont.variable} ${bodyFont.variable}`}
     >
       <body className="font-sansBody antialiased min-h-full flex flex-col">{children}</body>
+      <FloatingWhatsappWidget />
     </html>
   );
 }
