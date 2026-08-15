@@ -1,0 +1,43 @@
+@import "tailwindcss";
+:root { 
+  --font-heading : "DM Serif Display", serif;
+  --font-body : "Manrope", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-title {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400; /* DM Serif Display only has a 400 weight */
+}
+
+/* Apply Manrope to the rest of the application */
+body, p, span, li, button, input {
+  font-family: 'Manrope', sans-serif;
+}
+
+@keyframes slideRight {
+  from { 
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }  
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-\[slideRight_0\.9s_ease-out_forwards\] {
+  animation: slideRight 0.6s ease-out forwards;
+}
+
+.animate-\[fadeIn_0\.6s_ease-out_0\.7s_forwards\] {
+  animation: fadeIn 0.6s ease-out 0.7s forwards;
+}
