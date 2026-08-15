@@ -56,13 +56,16 @@ const AmenitiesSlider = ({sliderData} : AmenitiesSliderProps) => {
           const isSecond = item.id % 2 === 0;
           return(
             <SwiperSlide key={item.id} className="mt-20">
-              <div className={`relative rounded-3xl h-100 ${isSecond ? 'mt-[40]' : ''}`} style={{backgroundImage: `url(${item.image})`}}>
+              <div className={`group relative rounded-3xl h-100 ${isSecond ? 'mt-[40]' : ''}`} style={{backgroundImage: `url(${item.image})`}}>
                   <span className="flex items-center align-center justify-center absolute w-13 h-13 right-5 top-5 bg-[#ffffff90] px-0 py-0 rounded-full">
                       <ArrowUpIcon size={20} className='transform rotate-45'/>
                   </span>
                   <span className="absolute left-5 bottom-5 bg-[#ffffff90] px-5 py-2 rounded-full">
                       <p className='font-semibold text-lg'>{item.label}</p>
                   </span>
+                  <div className="opacity-0 w-0 h-0 bg-white transition-all duration-400 group-hover:opacity-100 group-hover:w-full group-hover:h-full">
+
+                  </div>
               </div>              
             </SwiperSlide>
           );
