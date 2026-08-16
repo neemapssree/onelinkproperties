@@ -1,29 +1,42 @@
-import Overview from "./components/layout/sections/Overview";
-import Banner from "./components/layout/sections/Banner";
-import Menu from "./components/layout/sections/Menu";
-import ProjectStats from "./components/layout/sections/ProjectStats";
-import InvestmentHighlights from "./components/layout/sections/InvestmentHighlights";
-import PropTypes from "./components/layout/sections/PropTypes";
-import Amenities from "./components/layout/sections/Amenities";
-import Location from "./components/layout/sections/Locations";
-import Contact from "./components/layout/sections/Contact";
-import CTA from "./components/layout/sections/CTA";
-import Footer from "./components/layout/sections/Footer";
+import type { Metadata } from "next";
+import Home from "./components/HomePage";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "OneLink Properties | Aurelia Residences",
+  description:
+    "Discover Aurelia Residences at Dubai Creek Harbour. Explore premium residences, amenities, pricing and investment opportunities.",
+  keywords: [
+    "Aurelia Residences",
+    "Dubai Creek Harbour",
+    "Dubai real estate",
+    "OneLink Properties",
+  ],
+  robots: {
+    index: false,
+    follow: false,
+  },
+
+  openGraph: {
+    title: "OneLink Properties | Aurelia Residences",
+    description:
+      "Discover Aurelia Residences at Dubai Creek Harbour. Explore premium residences, amenities, pricing and investment opportunities.",
+    type: "website",
+    images: [
+      {
+        url: "/images/onelink-properties-project.webp",
+        width: 1200,
+        height: 630,
+        alt: "OneLink Properties",
+      },
+    ],
+  },
+};
+
+export default function MainPage() {
+
   return (
     <>
-      <Menu />
-      <Banner />
-      <ProjectStats />
-      <Overview />
-      <InvestmentHighlights />
-      <PropTypes />
-      <Amenities />
-      <Location />
-      <Contact />
-      <CTA />
-      <Footer />
+      <Home />
     </>
     
   );

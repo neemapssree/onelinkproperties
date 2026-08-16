@@ -23,6 +23,6 @@ export async function submitFormAction(data: FormInputType) {
         return { success: false, errors: validatedFields.error.flatten().fieldErrors }
     } 
 
-    console.log("Server received validated data:", validatedFields.data)
+    console.log("Server received validated data:", validatedFields.data);
     return { success: true, message: "Form submitted successfully!" }
 }

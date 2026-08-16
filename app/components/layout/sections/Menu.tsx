@@ -1,53 +1,64 @@
-"use client"
+"use client";
 
+import { NAV_ITEMS } from "@/app/utils/constants";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const navItems = [
-    {"title" : "Home", "url" : "#"},
-    {"title" : "Overview", "url" : "#overview"},
-    {"title" : "Investment", "url" : "#investment"},
-    {"title" : "Amenities", "url" : "#amenities"},
-    {"title" : "Contact", "url" : "#contact"}
-];
+import MobileMenu from "../../MobileMenu";
 
 const Menu = () => {
-    const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
 
-        window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
-        return() => {
-            window.removeEventListener("scroll" , handleScroll);
-        };
-    }, []);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className={`w-full h-[80px] fixed inset-0 z-99  ${scrolled ? "bg-black" : "bg-transparent"}`}>
-        <div className="max-w-7xl md:flex md:justify-between md:gap-7 h-[80px] mx-auto pt-5 pb-0">
-            <div>
-                <span className="uppercase text-white text-4xl" >onelink</span>
-            </div>
+    <header
+      className={`fixed left-0 top-0 z-[1000] h-[80px] w-full transition-all duration-300 ${
+        scrolled ? "bg-black" : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-full w-full md:max-w-7xl items-center justify-between px-4">
 
-            {/* navigation */}
-            <div className="">
-                <ul className="w-full flex gap-10">
-                    {navItems.map((item, index) => {
-                        return(
-                            <Link href={item.url} key={index}>
-                                <li className="text-white text-lg">{item.title}</li>
-                            </Link>
-                        )                    
-                    })}
-                </ul>
-            </div>
-        </div>
-    </div>
-  )
-}
+        {/* Logo */}
+        <Link href="/" className="relative z-[9999]">
+          <span className="text-4xl uppercase text-white">
+            onelink
+          </span>
+        </Link>
 
-export default Menu
+        {/* Desktop menu */}
+        <nav className="hidden lg:block">
+          <ul className="flex items-center gap-10">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.url}>
+                <Link
+                  href={item.url}
+                  className="text-lg text-white"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Mobile menu */}
+        <MobileMenu />
+
+      </div>
+    </header>
+  );
+};
+
+export default Menu;

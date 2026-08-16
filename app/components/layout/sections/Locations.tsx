@@ -48,7 +48,11 @@ const nearbyLocations = [
   },
 ];
 
-export default function Location() {
+interface LocationProps {
+  onOpenModal: () => void;
+}
+
+export default function Location({onOpenModal} : LocationProps) {
   return (
     <section
       id="location"
@@ -168,13 +172,13 @@ export default function Location() {
                 and effortless access to the energy of Dubai.
               </p>
 
-              <a
-                href="#contact"
+              <button
+              onClick={onOpenModal}
                 className="inline-flex items-center gap-3 rounded-full bg-[#D2B450] px-6 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-[#F5F5DC]"
               >
                 Enquire Now
                 <ArrowUpRight size={16} />
-              </a>
+              </button>
             </div>
 
           </div>

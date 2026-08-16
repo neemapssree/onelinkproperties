@@ -39,15 +39,15 @@ const ProjectStats = () => {
             return (
               <div
                 key={stat.label}
-                className="group rounded-[24px] bg-[#F5F5DC] px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group rounded-[24px] bg-[#F5F5DC] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="mb-2 text-sm font-medium text-black/60">
+                    <p className="mb-2 text-xs font-medium text-black/60">
                       {stat.label}
                     </p>
 
-                    <h3 className="text-xl font-semibold tracking-tight text-black md:text-2xl">
+                    <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-black">
                       {stat.value}
                     </h3>
                   </div>

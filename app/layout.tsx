@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { DM_Serif_Display, Manrope } from "next/font/google";
 import FloatingWhatsappWidget from "./components/layout/sections/FloatingWhatsappWidget";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 const headingFont = DM_Serif_Display({
   subsets: ["latin"],

@@ -1,6 +1,8 @@
-import { ArrowUpCircle, ArrowUpIcon } from 'lucide-react';
-import React from 'react'
 import AmenitiesSlider from './AmenitiesSlider';
+
+interface AmenitiesProps {
+  onOpenModal: () => void;
+}
 
 const amenitiesData = [
     {"id" : 1, "label" : "Infinity Pool", 
@@ -19,19 +21,23 @@ const amenitiesData = [
     "image" : "/images/amenities/onelink-properties-concierge.webp", "content" : "Dedicated assistance for everyday convenience." }
 ];
 
-const Amenities = () => {
+const Amenities = ({onOpenModal}: AmenitiesProps) => {
   return (
-    <section className='pb-16'>
+    <section className='pb-31 overflow-hidden' id='amenities'>
         <div className='w-full max-w-7xl mx-auto'>
             <div className="text-center">
                 <h2 className="mb-4 text-2xl tracking-widest">
                     THE EXPERIENCE
-                </h2>
-                <p className="text-4xl">
-                    Unparallelled Amenities for Unmatched Living
-                </p>
+                </h2>                
+                 <h2 className="text-center font-serif text-2xl leading-[1.05] sm:text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-16">
+              Unparallelled Amenities for 
+              <br/>                      
+              <span className="italic text-[#D2B450]">
+                      Unmatched Living
+              </span>
+          </h2>
             </div>            
-            <AmenitiesSlider sliderData = {amenitiesData} />
+            <AmenitiesSlider sliderData = {amenitiesData} onOpenModal={onOpenModal} />
         </div>
     </section>
   )

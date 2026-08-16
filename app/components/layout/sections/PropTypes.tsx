@@ -3,8 +3,8 @@
 import { useState } from "react";
 import TypewriterText from "../../utils/TypewriterText";
 import {
+  DollarSignIcon,
   LucideAreaChart,
-  LucideCircleDollarSign,
 } from "lucide-react";
 
 const tabData = [
@@ -12,7 +12,7 @@ const tabData = [
     id: "tab1",
     label: "1 Bedroom",
     image: "/images/bedrooms/onelink-properties-1-bed.webp",
-    price: "1.25M",
+    price: "From AED 1.25M",
     area: "750 sq ft",
     content:
       "A sophisticated residence designed for modern city living, with an open-plan layout and generous natural light.",
@@ -20,7 +20,7 @@ const tabData = [
   {
     id: "tab2",
     label: "2 Bedroom",
-    price: "2.25M",
+    price: "From AED 2.25M",
     area: "850 sq ft",
     image: "/images/bedrooms/onelink-properties-2-bed.webp",
     content:
@@ -29,7 +29,7 @@ const tabData = [
   {
     id: "tab3",
     label: "3 Bedroom",
-    price: "3.25M",
+    price: "From AED 3.25M",
     area: "1150 sq ft",
     image: "/images/bedrooms/onelink-properties-3-bed.webp",
     content:
@@ -44,17 +44,19 @@ const PropTypes = () => {
     tabData.find((tab) => tab.id === activeTab) ?? tabData[0];
 
   return (
-    <section className="my-10 py-16">
+    <section className="my-10 py-16" id="residences">
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
 
         <div className="text-center">
           <h2 className="mb-4 text-2xl tracking-widest">
             THE RESIDENCES
+          </h2>          
+          <h2 className="text-center font-serif text-2xl leading-[1.05] sm:text-3xl md:text-4xl lg:text-5xl">
+              Find your perfect              
+              <span className="italic text-[#D2B450]">
+                      space
+              </span>
           </h2>
-
-          <p className="text-4xl">
-            Find your perfect space
-          </p>
 
           <p className="mx-auto mt-7 max-w-3xl text-lg">
             Thoughtfully designed residences ranging from elegant
@@ -121,12 +123,12 @@ const PropTypes = () => {
 
                 <div
                   key={`price-${activeContent.id}`}
-                  className="flex w-full origin-left items-center gap-3 rounded-xl bg-[#F5F5DC] px-4 py-3 sm:w-[200px] animate-[slideRight_0.9s_ease-out_forwards]"
+                  className="flex w-full origin-left items-center gap-3 rounded-xl bg-black px-4 py-3 sm:w-[220px] animate-[slideRight_0.9s_ease-out_forwards]"
                 >
                   <div className="flex items-center gap-3 opacity-0 animate-[fadeIn_0.6s_ease-out_0.7s_forwards]">
-                    <LucideCircleDollarSign className="h-8 w-8 flex-shrink-0 rounded-full bg-[#D2B450] p-1 text-white" />
+                    <DollarSignIcon className="h-6 w-6 flex-shrink-0 rounded-full bg-[#D2B450] p-1 text-white" />
 
-                    <span className="text-lg font-semibold text-gray-800">
+                    <span className="text-md md:text-lg text-[#D2B450]">
                       {activeContent.price}
                     </span>
                   </div>
@@ -134,12 +136,12 @@ const PropTypes = () => {
 
                 <div
                   key={`area-${activeContent.id}`}
-                  className="flex w-full origin-left items-center gap-3 rounded-xl bg-[#F5F5DC] px-4 py-3 sm:w-[200px] animate-[slideRight_0.9s_ease-out_forwards]"
+                  className="flex w-full origin-left items-center gap-3 rounded-xl bg-black px-4 py-3 sm:w-[220px] animate-[slideRight_0.9s_ease-out_forwards]"
                 >
                   <div className="flex items-center gap-3 opacity-0 animate-[fadeIn_0.6s_ease-out_0.7s_forwards]">
-                    <LucideAreaChart className="h-8 w-8 flex-shrink-0 rounded-full bg-[#D2B450] p-1 text-white" />
+                    <LucideAreaChart className="h-6 w-6 flex-shrink-0 rounded-full bg-[#D2B450] p-1 text-white" />
 
-                    <span className="text-lg font-semibold text-gray-800">
+                    <span className="text-md md:text-lg text-[#D2B450]">
                       {activeContent.area}
                     </span>
                   </div>

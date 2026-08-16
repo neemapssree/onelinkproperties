@@ -1,76 +1,98 @@
 "use client";
 
-import { useState } from "react";
-import TypewriterText from "../../utils/TypewriterText";
-import {
-    ChevronRight,
-  LucideAreaChart,
-  LucideCircleDollarSign,
-  MessageCircleIcon,
-} from "lucide-react";
+import { ChevronRight, MessageCircleIcon } from "lucide-react";
 import Link from "next/link";
 
-const tabData = [
-  {
-    id: "tab1",
-    label: "1 Bedroom",
-    image: "/images/bedrooms/onelink-properties-1-bed.webp",
-    price: "1.25M",
-    area: "750 sq ft",
-    content:
-      "A sophisticated residence designed for modern city living, with an open-plan layout and generous natural light.",
-  },
-  {
-    id: "tab2",
-    label: "2 Bedroom",
-    price: "2.25M",
-    area: "850 sq ft",
-    image: "/images/bedrooms/onelink-properties-2-bed.webp",
-    content:
-      "Spacious interiors designed for comfortable family living, combining contemporary finishes with beautiful surroundings.",
-  },
-  {
-    id: "tab3",
-    label: "3 Bedroom",
-    price: "3.25M",
-    area: "1150 sq ft",
-    image: "/images/bedrooms/onelink-properties-3-bed.webp",
-    content:
-      "An expansive residence offering generous living spaces, premium finishes, and a refined lifestyle for modern families.",
-  },
-];
+interface CTAProps {
+  onOpenModal: () => void;
+}
 
-const CTA = () => {
-  const [activeTab, setActiveTab] = useState(tabData[0].id);
-
-  const activeContent =
-    tabData.find((tab) => tab.id === activeTab) ?? tabData[0];
-
+const CTA = ({ onOpenModal }: CTAProps) => {
   return (
-    <section className="my-10 py-16">
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
+    <section className="my-6 w-full py-14 sm:my-10 sm:py-20 md:py-28">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 md:px-8">
 
+        {/* Heading */}
         <div className="text-center">
-          <h2 className="mb-4 text-2xl tracking-widest">
+
+          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] sm:mb-5 sm:text-sm md:text-base md:tracking-[0.25em]">
             YOUR NEXT ADDRESS
           </h2>
 
-          <p className="text-4xl">
-            Find your place in Dubai.
-          </p>
+          <h3 className="font-serif text-3xl leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl">
+            Find your place{" "}
+            <span className="italic text-[#D2B450]">
+              in Dubai.
+            </span>
+          </h3>
 
-          <p className="mx-auto mt-7 max-w-3xl text-lg">
+          <p className="mx-auto mt-5 max-w-2xl px-2 text-base leading-relaxed text-gray-600 sm:mt-7 sm:text-lg">
             Discover a residence designed around the way you want to live.
           </p>
 
-          <div className='flex gap-7 mt-7 items-center justify-center'>
-                <button className='flex gap-3 bg-[#D2B450] hover:bg-[#000] hover:text-white text-md px-5 py-3 rounded-3xl cursor-pointer'>
-                    Enquire Now <ChevronRight />
-                </button>
-                <Link href="https://wa.me/9544637350?text=Hello%2C%20I%20have%20a%20question." target="_blank" className='flex gap-3 bg-[#000] text-white hover:bg-[#D2B450] text-md px-5 py-3 rounded-3xl cursor-pointer'>
-                    Whatsapp <MessageCircleIcon />
-                </Link>                    
-            </div> 
+          {/* Buttons */}
+          <div className="mt-7 flex w-full flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-5">
+
+            {/* Enquire */}
+            <button
+              type="button"
+              onClick={onOpenModal}
+              className="
+                flex
+                w-full
+                max-w-[280px]
+                items-center
+                justify-center
+                gap-3
+                rounded-3xl
+                bg-[#D2B450]
+                px-6
+                py-3
+                text-sm
+                font-medium
+                transition-colors
+                hover:bg-black
+                hover:text-white
+                sm:w-auto
+                sm:max-w-none
+                sm:text-base
+              "
+            >
+              Enquire Now
+              <ChevronRight size={20} />
+            </button>
+
+            {/* WhatsApp */}
+            <Link
+              href="https://wa.me/9544637350?text=Hello%2C%20I%20have%20a%20question."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                flex
+                w-full
+                max-w-[280px]
+                items-center
+                justify-center
+                gap-3
+                rounded-3xl
+                bg-black
+                px-6
+                py-3
+                text-sm
+                font-medium
+                text-white
+                transition-colors
+                hover:bg-[#D2B450]
+                sm:w-auto
+                sm:max-w-none
+                sm:text-base
+              "
+            >
+              WhatsApp
+              <MessageCircleIcon size={20} />
+            </Link>
+
+          </div>
         </div>
       </div>
     </section>
