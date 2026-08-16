@@ -13,7 +13,7 @@ const Overview = ({ onOpenModal }: OverviewProps) => {
                 <div className='relative h-full w-full rounded-2xl overflow-hidden'>
                     <Image src="/images/onelink-properties-project.webp"                 
                     alt='onelink properties' fill 
-                    className='object-cover'
+                    className='object-cover' loading="lazy"
                     sizes="(max-width: 768px) 100vw, 50vw" />
                 </div>
             </div>

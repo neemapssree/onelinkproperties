@@ -1,13 +1,13 @@
 "use client"
 
-import Overview from "./layout/sections/Overview";
 import Banner from "./layout/sections/Banner";
+import Overview from "./layout/sections/Overview";
 import Menu from "./layout/sections/Menu";
 import ProjectStats from "./layout/sections/ProjectStats";
 import InvestmentHighlights from "./layout/sections/InvestmentHighlights";
-import PropTypes from "./layout/sections/PropTypes";
-import Amenities from "./layout/sections/Amenities";
-import Location from "./layout/sections/Locations";
+const PropTypes = dynamic(() => import('./layout/sections/PropTypes'));
+const Amenities = dynamic(() => import('./layout/sections/Amenities'));
+const Location = dynamic(() => import('./layout/sections/Locations'));
 import Contact from "./layout/sections/Contact";
 import CTA from "./layout/sections/CTA";
 import Footer from "./layout/sections/Footer";
@@ -16,6 +16,7 @@ import Modal from "./Modal";
 import ContactForm from "./layout/sections/ContactForm";
 
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "OneLink Properties | Aurelia Residences",

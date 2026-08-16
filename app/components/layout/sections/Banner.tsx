@@ -1,4 +1,5 @@
 import { ChevronRight, MapPin } from 'lucide-react'
+import Image from 'next/image';
 
 interface BannerProps {
   onOpenModal: () => void;
@@ -6,8 +7,18 @@ interface BannerProps {
 
 const Banner = ({ onOpenModal }: BannerProps) => {
   return (
-    <div className="w-full overflow-hidden bg-[url('/images/onelink-properties-header.webp')] bg-cover bg-bottom md:bg-center h-[650px] md:h-[700px]">
-        <div className="flex h-full w-full bg-gradient-to-t from-black/80 via-black/35 to-black/10">
+    <div className="relative w-full overflow-hidden h-[650px] md:h-[700px]">
+        <Image
+            src="/images/onelink-properties-header.webp"
+            alt="OneLink Properties"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover object-bottom md:object-center"
+        />
+
+        <div className="absolute inset-0 flex h-full w-full bg-gradient-to-t from-black/80 via-black/35 to-black/10">
             <div className='mx-auto grid h-full w-full max-w-7xl grid-cols-1 items-end md:gap-10 px-4 pb-10 pt-5 md:grid-cols-2'>
                 {/* Left */}
                 <div className="min-w-0 pt-25 md:pt-0">
