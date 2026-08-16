@@ -74,7 +74,7 @@ const PropTypes = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative h-[130px] min-w-[200px] overflow-hidden rounded-xl bg-cover bg-center text-left transition-all duration-300 md:h-[150px] md:min-w-0 ${
                   activeTab === tab.id
-                    ? "ring-4 ring-[#D2B450]"
+                    ? "ring-4 ring-[#D2B450] transform scale-98"
                     : "opacity-75 hover:opacity-100"
                 }`}
                 style={{
@@ -106,7 +106,6 @@ const PropTypes = () => {
             <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/55" />
 
             <div className="relative z-10 w-full p-6 text-white md:p-8">
-
               <h3 className="mb-3 text-3xl font-bold">
                 {activeContent.label}
               </h3>
@@ -120,15 +119,13 @@ const PropTypes = () => {
               </div>
 
               <div className="flex flex-wrap gap-4">
-
                 <div
                   key={`price-${activeContent.id}`}
                   className="flex w-full origin-left items-center gap-3 rounded-xl bg-black px-4 py-3 sm:w-[220px] animate-[slideRight_0.9s_ease-out_forwards]"
                 >
                   <div className="flex items-center gap-3 opacity-0 animate-[fadeIn_0.6s_ease-out_0.7s_forwards]">
                     <DollarSignIcon className="h-6 w-6 flex-shrink-0 rounded-full bg-[#D2B450] p-1 text-white" />
-
-                    <span className="text-md md:text-lg text-[#D2B450]">
+                      <span className="text-md md:text-lg text-[#D2B450]">
                       {activeContent.price}
                     </span>
                   </div>
@@ -146,11 +143,9 @@ const PropTypes = () => {
                     </span>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
