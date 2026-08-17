@@ -5,13 +5,7 @@ import { InstagramIcon } from "./Socials/InstagramIcon";
 import { LinkedInIcon } from "./Socials/LinkedinIcon";
 import { FacebookIcon } from "./Socials/FacebookIcon";
 
-const footerLinks = [
-  { label: "Overview", href: "#overview" },
-  { label: "Residences", href: "#residences" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Location", href: "#location" },
-  { label: "Contact", href: "#contact" },
-];
+import { NAV_ITEMS } from "@/app/utils/constants";
 
 interface FooterProps {
   onOpenModal: () => void;
@@ -127,10 +121,10 @@ const Footer = ({ onOpenModal }: FooterProps) => {
             </h3>
 
             <nav className="flex flex-col gap-3">
-              {footerLinks.map((link) => (
+              {NAV_ITEMS.map((link) => (
                 <a
-                  key={link.label}
-                  href={link.href}
+                  key={link.title}
+                  href={link.url}
                   className="
                     group
                     flex
@@ -144,7 +138,7 @@ const Footer = ({ onOpenModal }: FooterProps) => {
                     hover:text-white
                   "
                 >
-                  {link.label}
+                  {link.title}
 
                   <ArrowUpRight
                     size={13}
